@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">QRTube</string>
+
+    <string name="scan_button">Scan a tag</string>
+</resources>
