@@ -28,6 +28,7 @@ public class MainActivity extends Activity {
     private VideoView video;
     private ImageView scanImg;
     private boolean isCompleted;
+    private Intent currentIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ public class MainActivity extends Activity {
         }
 
         video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
+            @Override
             public void onCompletion(MediaPlayer mp) {
                 position = 0;
                 isCompleted = true;
@@ -77,6 +78,8 @@ public class MainActivity extends Activity {
 
     public void startVideo() {
         scanImg.setVisibility(View.GONE);
+        video.setVisibility(View.VISIBLE);
+        video.setZOrderOnTop(false);
         Uri path = Uri.parse("android.resource://" + getPackageName() + "/raw/" + videoName);
         video.setVideoURI(path);
         video.seekTo(position);
@@ -85,39 +88,11 @@ public class MainActivity extends Activity {
     }
 
     public void scanQR(View v) {
-        try {
-            //start the scanning activity from the com.google.zxing.client.android.SCAN intent
-            Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-            intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
-            startActivityForResult(intent, 0);
-        } catch (ActivityNotFoundException e) {
-            //on catch, show the download dialog
-            showDialog(MainActivity.this, "No Scanner Found", "Download a scanner code activity?", "Yes", "No").show();
-        }
+        //start the scanning activity
+        Intent intent = new Intent(this,ScannerActivity.class);
+        startActivityForResult(intent, 0);
     }
 
-    //alert dialog for downloadDialog
-    private static AlertDialog showDialog(final Activity act, CharSequence title, CharSequence message, CharSequence buttonYes, CharSequence buttonNo) {
-        AlertDialog.Builder downloadDialog = new AlertDialog.Builder(act);
-        downloadDialog.setTitle(title);
-        downloadDialog.setMessage(message);
-        downloadDialog.setPositiveButton(buttonYes, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Uri uri = Uri.parse("market://search?q=pname:" + "com.google.zxing.client.android");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                try {
-                    act.startActivity(intent);
-                } catch (ActivityNotFoundException e) {
-
-                }
-            }
-        });
-        downloadDialog.setNegativeButton(buttonNo, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogInterface, int i) {
-            }
-        });
-        return downloadDialog.show();
-    }
 
     //on ActivityResult method
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
