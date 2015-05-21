@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ZooDex</string>
     <string name="scanner">Scanner</string>
@@ -6,4 +7,10 @@
     <string name="splash_title">ZooDex</string>
 
     <string name="scan_button">Scan a tag</string>
+
+
+    <string name="height">Højde</string>
+    <string name="habitat">Levested</string>
+    <string name="weight">Vægt</string>
+    <string name="eats">Spiser</string>
 </resources>

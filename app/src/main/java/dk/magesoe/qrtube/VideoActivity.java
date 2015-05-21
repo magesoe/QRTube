@@ -4,8 +4,7 @@ import android.app.Activity;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 /**
@@ -16,11 +15,33 @@ public class VideoActivity extends Activity {
     private String videoName;
     private int position;
     private VideoView video;
+    private TextView name;
+    private TextView desc;
+    private TextView height;
+    private TextView habitat;
+    private TextView weight;
+    private TextView eats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.video);
+        setContentView(R.layout.videolayout);
+
+        name = (TextView) findViewById(R.id.txt_animal_name);
+        name.setText("Pingvin");
+        desc = (TextView) findViewById(R.id.txt_animal_desc);
+        desc.setText("Pingvinen er et elegant dyr, som ikke kan flyve...");
+
+
+        height = (TextView) findViewById(R.id.txt_animal_height);
+        height.setText("65 cm");
+        habitat = (TextView) findViewById(R.id.txt_animal_habitat);
+        habitat.setText("Sydpolen/Arktis");
+        weight = (TextView) findViewById(R.id.txt_animal_weight);
+        weight.setText("10 kg");
+        eats = (TextView) findViewById(R.id.txt_animal_eats);
+        eats.setText("Alt det kan komme i nærheden af");
+
 
         position = 0;
 
@@ -32,7 +53,6 @@ public class VideoActivity extends Activity {
         }
 
         video = (VideoView)findViewById(R.id.videoView);
-        video.setZOrderOnTop(true);
 
         video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override

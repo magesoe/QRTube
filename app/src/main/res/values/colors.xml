@@ -2,4 +2,6 @@
 <resources>
     <item name="border_color" type="color">#FF33B5E5</item>
     <item name="background" type="color">#FFF</item>
+    <item name="back_desc" type="color">#95a5a6</item>
+    <item name="back_facts" type="color">#bdc3c7</item>
 </resources>
