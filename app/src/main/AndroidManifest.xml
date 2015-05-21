@@ -12,7 +12,7 @@
         >
         <activity
             android:name=".SplashActivity"
-            android:label="@string/splash">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,13 +20,28 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".MainMenuActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation">
+        </activity>
+        <activity
             android:name=".ScanMenuActivity"
-            android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:configChanges="orientation">
         </activity>
         <activity
             android:name=".ScannerActivity"
-            android:label="@string/scanner"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation">
+        </activity>
+        <activity
+            android:name=".AnimalIndex"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation">
+        </activity>
+        <activity
+            android:name=".VideoActivity"
+            android:screenOrientation="portrait"
             android:configChanges="orientation">
         </activity>
     </application>
