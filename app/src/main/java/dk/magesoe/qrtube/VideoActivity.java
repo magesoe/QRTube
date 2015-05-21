@@ -1,6 +1,7 @@
 package dk.magesoe.qrtube;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,25 +28,27 @@ public class VideoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.videolayout);
 
+        Intent intent = getIntent();
+
         name = (TextView) findViewById(R.id.txt_animal_name);
-        name.setText("Pingvin");
+        name.setText(intent.getStringExtra("NAME"));
         desc = (TextView) findViewById(R.id.txt_animal_desc);
-        desc.setText("Pingvinen er et elegant dyr, som ikke kan flyve...");
+        desc.setText(intent.getStringExtra("DESC"));
 
 
         height = (TextView) findViewById(R.id.txt_animal_height);
-        height.setText("65 cm");
+        height.setText(intent.getStringExtra("HEIGHT"));
         habitat = (TextView) findViewById(R.id.txt_animal_habitat);
-        habitat.setText("Sydpolen/Arktis");
+        habitat.setText(intent.getStringExtra("HABITAT"));
         weight = (TextView) findViewById(R.id.txt_animal_weight);
-        weight.setText("10 kg");
+        weight.setText(intent.getStringExtra("WEIGHT"));
         eats = (TextView) findViewById(R.id.txt_animal_eats);
-        eats.setText("Alt det kan komme i nærheden af");
+        eats.setText(intent.getStringExtra("EATS"));
 
 
         position = 0;
 
-        videoName = getIntent().getStringExtra("VIDEONAME");
+        videoName = intent.getStringExtra("VIDEONAME");
 
         if (savedInstanceState != null){
             videoName = savedInstanceState.getString("videoName");

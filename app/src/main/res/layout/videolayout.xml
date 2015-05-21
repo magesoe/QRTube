@@ -48,7 +48,7 @@
 
     <GridLayout
         android:id="@+id/animal_facts"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@color/back_facts"
