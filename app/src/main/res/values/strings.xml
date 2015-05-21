@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">QRTube</string>
+    <string name="app_name">ZooDex</string>
     <string name="scanner">Scanner</string>
+    <string name="splash">Splash</string>
+
+    <string name="splash_title">ZooDex</string>
 
     <string name="scan_button">Scan a tag</string>
 </resources>

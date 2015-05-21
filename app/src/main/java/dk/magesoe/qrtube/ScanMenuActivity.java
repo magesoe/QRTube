@@ -21,7 +21,7 @@ import android.widget.VideoView;
 import java.io.File;
 
 
-public class MainActivity extends Activity {
+public class ScanMenuActivity extends Activity {
 
     private String videoName;
     private int position;
