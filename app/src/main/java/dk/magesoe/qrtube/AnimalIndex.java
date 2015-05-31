@@ -16,39 +16,17 @@ import java.util.ArrayList;
  */
 public class AnimalIndex extends Activity implements AdapterView.OnItemClickListener {
 
-    ArrayList<Animal> animals;
+    AnimalDatabase animalDatabase;
     ListView listView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.animalindex);
-        animals = new ArrayList<Animal>();
+        animalDatabase = new AnimalDatabase(getApplicationContext());
 
-        // animals
-        Animal mudkip = new Animal(R.drawable.icon, "Mudkip","Mudkip is a small amphibious quadruped Pokemon. It has a blue body with a light-blue underside.","40 cm","Water","7,6 kg", "Pokemon food");
-        Animal ko = new Animal(R.drawable.icon, "Ko", "Ko desc", "Ko er stor", "Ko bor", "Ko vejer", "Ko spiser");
-        Animal tiger = new Animal(R.drawable.icon, "Tiger", "Ko desc", "Ko er stor", "Ko bor", "Ko vejer", "Ko spiser");
-        Animal pingvin = new Animal(R.drawable.icon, "Pingvin", "Ko desc", "Ko er stor", "Ko bor", "Ko vejer", "Ko spiser");
-        Animal emil = new Animal(R.drawable.icon, "Emil", "Ko desc", "Ko er stor", "Ko bor", "Ko vejer", "Ko spiser");
-        Animal spatte1 = new Animal(R.drawable.icon, "Spaette", "Ko desc", "Ko er stor", "Ko bor", "Ko vejer", "Ko spiser");
-        Animal ko1 = new Animal(R.drawable.icon, "Ko", "Ko desc", "Ko er stor", "Ko bor", "Ko vejer", "Ko spiser");
-        Animal tiger1 = new Animal(R.drawable.icon, "Tiger", "Ko desc", "Ko er stor", "Ko bor", "Ko vejer", "Ko spiser");
-        Animal pingvin1 = new Animal(R.drawable.icon, "Pingvin", "Ko desc", "Ko er stor", "Ko bor", "Ko vejer", "Ko spiser");
-        Animal emil1 = new Animal(R.drawable.icon, "Emil", "Ko desc", "Ko er stor", "Ko bor", "Ko vejer", "Ko spiser");
-
-        animals.add(mudkip);
-        animals.add(ko);
-        animals.add(tiger);
-        animals.add(pingvin);
-        animals.add(emil);
-        animals.add(spatte1);
-        animals.add(ko1);
-        animals.add(tiger1);
-        animals.add(pingvin1);
-        animals.add(emil1);
 
         listView = (ListView) findViewById(R.id.animal_list);
-        AnimalIndexAdapter adapter = new AnimalIndexAdapter(this, animals);
+        AnimalIndexAdapter adapter = new AnimalIndexAdapter(this, animalDatabase.getAnimalList());
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(this);
@@ -57,16 +35,23 @@ public class AnimalIndex extends Activity implements AdapterView.OnItemClickList
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Animal selectedAnimal = animals.get(position);
+        Animal selectedAnimal = animalDatabase.getAnimalList().get(position);
         Intent videoStart = new Intent(this,VideoActivity.class);
-        videoStart.putExtra("VIDEONAME", selectedAnimal.getName().toLowerCase());
+        videoStart.putExtra("VIDEONAME", selectedAnimal.getVideoname());
         videoStart.putExtra("NAME", selectedAnimal.getName());
         videoStart.putExtra("DESC", selectedAnimal.getDesc());
-        videoStart.putExtra("HEIGHT", selectedAnimal.getHeight());
         videoStart.putExtra("HABITAT", selectedAnimal.getHabitat());
         videoStart.putExtra("WEIGHT", selectedAnimal.getWeight());
         videoStart.putExtra("EATS", selectedAnimal.getEats());
+        videoStart.putExtra("CAMEFROM", "index");
         startActivity(videoStart);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainMenuActivity.class);
+        startActivity(intent);
         finish();
     }
 }

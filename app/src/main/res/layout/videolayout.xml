@@ -12,18 +12,20 @@
         android:layout_height="fill_parent"
         android:id="@+id/videoView"
         android:layout_alignParentTop="true"
+        android:background="@drawable/blackborder"
         />
 
 
     <GridLayout
         android:id="@+id/animal_desv"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@color/back_desc"
+        android:background="@drawable/blackborder_solidwhite"
         android:columnCount="2"
         android:rowCount="4"
-        android:padding="20dp">
+        android:padding="20dp"
+        >
 
 
         <TextView
@@ -42,7 +44,9 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="normal"
             android:layout_column="0"
-            android:layout_row="1"/>
+            android:layout_row="1"
+            android:maxLines="5"
+            android:scrollbars="vertical"/>
 
     </GridLayout>
 
@@ -51,31 +55,10 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@color/back_facts"
+        android:background="@drawable/blackborder_solidwhite"
         android:columnCount="2"
         android:rowCount="4"
         android:padding="20dp">
-
-            <TextView
-                android:id="@+id/lbl_animal_height"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/height"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold"
-                android:layout_column="0"
-                android:layout_row="0"
-                android:paddingRight="30dp"/>
-
-            <TextView
-                android:id="@+id/txt_animal_height"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="normal"
-                android:layout_column="1"
-                android:layout_row="0"/>
-
 
             <TextView
                 android:id="@+id/lbl_animal_habitat"
@@ -86,8 +69,7 @@
                 android:textStyle="bold"
                 android:layout_column="0"
                 android:layout_row="1"
-                android:paddingRight="30dp"
-                android:paddingTop="20dp"/>
+                android:paddingRight="30dp" />
 
             <TextView
                 android:id="@+id/txt_animal_habitat"
@@ -107,8 +89,7 @@
                 android:textStyle="bold"
                 android:layout_column="0"
                 android:layout_row="2"
-                android:paddingRight="30dp"
-                android:paddingTop="20dp"/>
+                android:paddingRight="30dp"/>
 
             <TextView
                 android:id="@+id/txt_animal_weight"
@@ -130,8 +111,7 @@
                 android:textStyle="bold"
                 android:layout_column="0"
                 android:layout_row="3"
-                android:paddingRight="30dp"
-                android:paddingTop="20dp"/>
+                android:paddingRight="30dp"/>
 
             <TextView
                 android:id="@+id/txt_animal_eats"

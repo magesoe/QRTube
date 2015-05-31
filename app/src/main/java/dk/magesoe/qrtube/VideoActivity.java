@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -18,10 +19,10 @@ public class VideoActivity extends Activity {
     private VideoView video;
     private TextView name;
     private TextView desc;
-    private TextView height;
     private TextView habitat;
     private TextView weight;
     private TextView eats;
+    private String cameFrom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +35,17 @@ public class VideoActivity extends Activity {
         name.setText(intent.getStringExtra("NAME"));
         desc = (TextView) findViewById(R.id.txt_animal_desc);
         desc.setText(intent.getStringExtra("DESC"));
+        desc.setMovementMethod(new ScrollingMovementMethod());
 
-
-        height = (TextView) findViewById(R.id.txt_animal_height);
-        height.setText(intent.getStringExtra("HEIGHT"));
         habitat = (TextView) findViewById(R.id.txt_animal_habitat);
         habitat.setText(intent.getStringExtra("HABITAT"));
         weight = (TextView) findViewById(R.id.txt_animal_weight);
         weight.setText(intent.getStringExtra("WEIGHT"));
         eats = (TextView) findViewById(R.id.txt_animal_eats);
         eats.setText(intent.getStringExtra("EATS"));
+
+
+        cameFrom = intent.getStringExtra("CAMEFROM");
 
 
         position = 0;
@@ -84,6 +86,21 @@ public class VideoActivity extends Activity {
         super.onSaveInstanceState(output);
         output.putString("videoName", videoName);
         output.putInt("pos", video.getCurrentPosition());
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent;
+        if (cameFrom.equals("index")) {
+            intent = new Intent(this, AnimalIndex.class);
+        } else if(cameFrom.equals("scan")) {
+            intent = new Intent(this, ScanMenuActivity.class);
+        }
+        else {
+            intent = new Intent(this, MainMenuActivity.class);
+        }
+        startActivity(intent);
+        finish();
     }
 
 }

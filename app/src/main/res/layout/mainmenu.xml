@@ -1,26 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent" android:layout_height="fill_parent">
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:background="@color/background">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/icon3"
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/scananimal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Scan dyr"/>
+        android:layout_below="@+id/icon"
+        android:text="Scan dyr"
+        android:background="@drawable/button_back"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
     <Button
         android:id="@+id/animalindex"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_below="@+id/scananimal"
-        android:text="Dyre index"/>
+        android:text="Dyre index"
+        android:background="@drawable/button_back"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
     <Button
         android:id="@+id/feedtimers"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_below="@+id/animalindex"
-        android:text="Tider for fodring"/>
+        android:text="Tider for fodring"
+        android:background="@drawable/button_back"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
 </RelativeLayout>

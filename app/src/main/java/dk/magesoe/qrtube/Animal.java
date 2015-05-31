@@ -6,19 +6,19 @@ package dk.magesoe.qrtube;
 public class Animal {
 
     private int drawableId;
+    private String videoname;
     private String name;
     private String desc;
-    private String height;
     private String habitat;
     private String weight;
     private String eats;
 
-    public Animal(int drawableId, String name, String desc, String height, String habitat, String weight, String eats) {
+    public Animal(int drawableId, String videoname, String name, String desc, String habitat, String weight, String eats) {
         super();
         this.drawableId = drawableId;
+        this.videoname = videoname;
         this.name = name;
         this.desc = desc;
-        this.height = height;
         this.habitat = habitat;
         this.weight = weight;
         this.eats = eats;
@@ -37,10 +37,6 @@ public class Animal {
         return desc;
     }
 
-    public String getHeight() {
-        return height;
-    }
-
     public String getHabitat() {
         return habitat;
     }
@@ -51,5 +47,9 @@ public class Animal {
 
     public String getEats() {
         return eats;
+    }
+
+    public String getVideoname() {
+        return videoname;
     }
 }

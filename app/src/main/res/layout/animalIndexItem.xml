@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="60dp"
-    android:padding="6dp">
+    android:padding="6dp"
+    android:background="@drawable/blackborder_solidwhite">
 
     <ImageView
         android:id="@+id/icon"
@@ -10,8 +11,7 @@
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="6dp"
-        android:src="@drawable/icon"/>
+        android:layout_marginRight="6dp"/>
 
     <TextView
         android:id="@+id/text"
@@ -20,7 +20,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/icon"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:textSize="16sp"
         />
 
